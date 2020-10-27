@@ -14,12 +14,12 @@ namespace Aufgabe3 {
     export class RegisteredUser extends User {
 
         public username: string;
-        public birthdate: number;
+        public birthdate: Date;
         public userPhoto: Photo; 
         public userPlaylists: Playlist[];
         public userFavouriteVideos: Video[];
 
-            constructor(_username: string, _birthdate: number, _userPhoto: Photo, _userPlaylists: Playlist[], _userFavouriteVideos: Video[]) {
+            constructor(_username: string, _birthdate: Date, _userPhoto: Photo, _userPlaylists: Playlist[], _userFavouriteVideos: Video[]) {
 
                 super();
                 this.username = _username;
@@ -27,12 +27,6 @@ namespace Aufgabe3 {
                 this.userPhoto = _userPhoto;
                 this.userPlaylists = _userPlaylists;
                 this.userFavouriteVideos = _userFavouriteVideos;
-
-            }
-
-            playVideo(): void {
-
-                super.playVideo();
 
             }
 
@@ -70,7 +64,7 @@ namespace Aufgabe3 {
         public uploaderChannel: Channel;
         public uploadedVideos: Video[];
 
-        constructor(_username: string, _birthdate: number, _userPhoto: Photo, _userPlaylists: Playlist[], _userFavouriteVideos: Video[], _uploaderChannel: Channel, _uploadedVideos: Video[]) {
+        constructor(_username: string, _birthdate: Date, _userPhoto: Photo, _userPlaylists: Playlist[], _userFavouriteVideos: Video[], _uploaderChannel: Channel, _uploadedVideos: Video[]) {
 
             super(_username, _birthdate, _userPhoto, _userPlaylists, _userFavouriteVideos);
 
@@ -91,7 +85,8 @@ namespace Aufgabe3 {
             this.uploadedVideos.push(videoToUpload);
         }
 
-        createChannel(): void {
+        createChannel(): void { //Ist das nicht wiedersprüchlich wenn der Channel schon bei der Erstellung des Uploaders vorhanden sein muss?
+            //für setter methode würde doch return wert fehlen oder?
 
             let channelName: string = prompt("Wie soll der Kanal heißen?: ");
             let channelPhoto: Photo;
@@ -125,9 +120,7 @@ namespace Aufgabe3 {
 
         uploadPhotoToChannel(_channelPhoto: Photo): void {
 
-
-
-
+            this.uploaderChannel.channelPhoto = _channelPhoto;
         }
 
     }
