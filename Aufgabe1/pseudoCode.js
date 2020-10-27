@@ -5,7 +5,7 @@ var Aufgabe1;
     let temperature = 0;
     let perfectTemperature = 36;
     if (temperature != perfectTemperature) {
-        console.log("Das Wasser ist zu Kalt");
+        console.log("Das Wasser ist zu kalt");
         temperature = perfectTemperature;
     }
     else {
