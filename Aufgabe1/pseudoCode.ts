@@ -5,13 +5,13 @@ namespace Aufgabe1 {
     let temperature: number = 0;
     let perfectTemperature: number = 36;
 
-    if(temperature != perfectTemperature){
+    if (temperature != perfectTemperature) {
 
         console.log("Das Wasser ist zu kalt");
         temperature = perfectTemperature;
 
     }
-    else{
+    else {
 
         console.log("Das Wasser hat genau die richtige Temperatur.");
 
@@ -21,7 +21,7 @@ namespace Aufgabe1 {
 
     let dirt: number = 50;
 
-    while(dirt > 0){
+    while (dirt > 0) {
 
         console.log("Noch nicht sauber.");
         dirt = dirt - 10;
