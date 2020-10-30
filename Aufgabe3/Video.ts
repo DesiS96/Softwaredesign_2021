@@ -6,16 +6,18 @@ namespace Aufgabe3 {
         public videoLengthInSecs: number;
         public videoSize: number;
         public videoAspectRatio: string;
+        public uuid: number;
 
-        constructor(_videoTitle: string, _videoLengthInSecs: number, _videoSize: number, _videoAspactRatio: string) {
+        constructor(_videoTitle: string, _videoLengthInSecs: number, _videoSize: number, _videoAspactRatio: string, _uuid: number) {
 
             this.videoTitle = _videoTitle;
             this.videoLengthInSecs = _videoLengthInSecs;
             this.videoSize = _videoSize;
             this.videoAspectRatio = _videoAspactRatio;
+            this.uuid = _uuid;
         }
 
-        playVideo(_thisVideo: Video): void {
+        playVideo(): void {
 
             console.log("Video wird abgespielt.");
 

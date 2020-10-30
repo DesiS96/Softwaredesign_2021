@@ -4,11 +4,13 @@ namespace Aufgabe3 {
 
         public channelName: string;
         public channelPhoto: Photo;
+        public subscribers: Subscription[];
 
-        constructor(_channelName: string, _channelPhoto: Photo) {
+        constructor(_channelName: string, _channelPhoto: Photo, _subscribers: Subscription[]) {
 
             this.channelName = _channelName;
             this.channelPhoto = _channelPhoto;
+            this.subscribers = _subscribers;
 
         }
     }

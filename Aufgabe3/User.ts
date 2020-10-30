@@ -2,91 +2,199 @@ namespace Aufgabe3 {
 
     export class User {
 
-        playVideo(): void {
+        playVideo(_videoToPlay: Video): void {
 
             console.log("Video wird abgespielt");
-            //wie Video erkennen welches gespielt werden soll?
-            //fehlt da ein Parameter im Diagramm?
 
         }
     }
 
     export class RegisteredUser extends User {
 
-        public username: string;
-        public birthdate: Date;
-        public userPhoto: Photo; 
-        public userPlaylists: Playlist[];
-        public userFavouriteVideos: Video[];
+        protected username: string;
+        protected birthdate: Date;
+        protected userPhoto: Photo; 
+        protected userPlaylists: Playlist[];
+        protected userFavouriteVideos: Video[];
+        protected subscriptions: Subscription[];
 
-            constructor(_username: string, _birthdate: Date, _userPhoto: Photo, _userPlaylists: Playlist[], _userFavouriteVideos: Video[]) {
+        /*constructor(_username: string, _birthdate: Date, _userphoto: Photo, _userPlaylist: Playlist[], _userFavouriteVideos: Video[]) {
 
                 super();
                 this.username = _username;
                 this.birthdate = _birthdate;
-                this.userPhoto = _userPhoto;
-                this.userPlaylists = _userPlaylists;
+                this.userPhoto = _userphoto;
+                this.userPlaylists = _userPlaylist;
                 this.userFavouriteVideos = _userFavouriteVideos;
 
+        }*/
+        //getters
+        get _birthdate(): Date {
+
+            return this.birthdate;
+        }
+
+        get _userPhoto(): Photo {
+
+            return this.userPhoto;
+        }
+
+        get _userPlaylist(): Playlist[] {
+
+            return this.userPlaylists;
+        }
+
+        get _userFavouriteVideos(): Video[] {
+
+            return this.userFavouriteVideos;
+        }
+
+        //setters
+        set _birthdate(_date: Date) {
+            
+            //Check if Date is Valid
+            if (_date.year.toString.length > 4 || _date.year > 2020) {
+
+                console.log("Error! Year is not valid");
             }
+            else {
+                if (_date.month.toString.length > 2 || _date.month > 12) {
 
-            createPlaylists(_firstVideoForPlaylist: Video): Playlist {
+                    console.log("Error! Month is not valid!");
+                }
+                else {
+                    if (_date.day.toString.length > 2) {
 
-                let playlistname: string = prompt("Wie soll die Playlist heißen?: ");
-                let playlist: Playlist = new Playlist([], this, playlistname);
+                        console.log("Error! Day is not valid.");
+                    }
+                    else {
+                        if ((_date.day == 31 && _date.month % 2 != 0) || (_date.day == 30 && _date.month % 2 == 0)) {
+        
+                            console.log("Error! Day is not valid.");
+                        }
+                        else {
 
-                this.addVideoToPlaylist(_firstVideoForPlaylist, playlist);
-
-                return playlist;
+                            this.birthdate = _date;
+                                
+                        }
+                    }
+                }   
             }
+        }
+        
+        set _userPhoto(_photo: Photo) {
 
-            addVideoToFavourites(_newFavouriteVideo: Video): void {
+            this.userPhoto = _photo;
+        }
 
-                this.userFavouriteVideos.push(_newFavouriteVideo);
-            }
+        set _userPlaylists(_playlists: Playlist[]) {
 
-            uploadUserPhoto(_userPhoto: Photo): void {
+            this.userPlaylists = _playlists;
+        }
 
-                this.userPhoto = _userPhoto;
-            }
+        set _userFavouriteVideos(_userFavouriteVideos: Video[]) {
 
-            addVideoToPlaylist(_newPlaylistVideo: Video, _playlist: Playlist): void {
+            this.userFavouriteVideos = _userFavouriteVideos;
+        }
 
-                let playlistVideo: PlaylistVideo = new PlaylistVideo(_newPlaylistVideo, this);
+        createPlaylist(_firstVideoForPlaylist: Video): void {
 
-                _playlist.playlistVideos.push(playlistVideo);
+            //eine PLaylist braucht mindestens ein Video, muss dann nicht demnach eigentlich ein Video mitgegeben werden?
 
-            }
+            let playlistname: string = prompt("Wie soll die Playlist heißen?: ");
+            let playlist: Playlist = new Playlist([], this, playlistname, Math.random());
+
+            this.addVideoToPlaylist(_firstVideoForPlaylist, playlist);
+
+        }
+
+        addVideoToFavourites(_newFavouriteVideo: Video): void {
+
+            this.userFavouriteVideos.push(_newFavouriteVideo);
+        }
+
+        uploadUserPhoto(_userPhoto: Photo): void {
+
+            this.userPhoto = _userPhoto;
+        }
+
+        addVideoToPlaylist(_newPlaylistVideo: Video, _playlist: Playlist): void {
+
+            let playlistVideo: PlaylistVideo = new PlaylistVideo(_newPlaylistVideo, this);
+
+            _playlist.playlistVideos.push(playlistVideo);
+
+        }
+
+        subscribteToChannel(_channel: Channel): void {
+
+            let subscription: Subscription = new Subscription(this, _channel, Math.random());
+
+            _channel.subscribers.push(subscription);
+
+            this.subscriptions.push(subscription);
+
+        }
     }
 
     export class Uploader extends RegisteredUser {
 
-        public uploaderChannel: Channel;
-        public uploadedVideos: Video[];
+        private uploaderChannel: Channel;
+        private uploadedVideos: Video[];
+        
+        /*constructor(_username: string, _birthdate: Date, _userphoto: Photo, _userPlaylist: Playlist[], _userFavouriteVideos: Video[], _uploaderChannel: Channel, _uploadedVideos: Video[]) {
 
-        constructor(_username: string, _birthdate: Date, _userPhoto: Photo, _userPlaylists: Playlist[], _userFavouriteVideos: Video[], _uploaderChannel: Channel, _uploadedVideos: Video[]) {
-
-            super(_username, _birthdate, _userPhoto, _userPlaylists, _userFavouriteVideos);
+            super(_username, _birthdate, _userphoto, _userPlaylist, _userFavouriteVideos);
 
             this.uploaderChannel = _uploaderChannel;
             this.uploadedVideos = _uploadedVideos;
 
+        }*/
+
+        //werden get und set methoden vererbt?
+
+        //getter
+
+        get _uploaderChannel(): Channel {
+
+            return this.uploaderChannel;
+        }
+
+        get _uploadedVideos(): Video[] {
+
+            return this.uploadedVideos;
+        }
+
+        //setter
+
+        /*set _uploaderChannel(_channel: Channel = this.createChannel?) {
+
+            this.uploaderChannel = _channel;
+        }*/
+
+        set _uploadedVideos(_videos: Video[]) {
+
+            this.uploadedVideos = _videos;
+
         }
 
         uploadVideo(): void {
+
+            //Video mehr oder weniger erstellen da kein Parameter?
 
             let videoTitle: string = prompt("Welcher Titel soll das Video haben?: ");
             let videoLengthInSecs: number = parseInt(prompt("Wie lange dauert das Video?: "));
             let videoSize: number = parseInt(prompt("Wie groß ist das Video in Megabite?: "));
             let videoAspectRatio: string = prompt("Gib das Seitenverhältnis des Videos an: ");
 
-            let videoToUpload: Video = new Video(videoTitle, videoLengthInSecs, videoSize, videoAspectRatio);
+            let videoToUpload: Video = new Video(videoTitle, videoLengthInSecs, videoSize, videoAspectRatio, Math.random());
 
             this.uploadedVideos.push(videoToUpload);
         }
 
-        createChannel(): void { //Ist das nicht wiedersprüchlich wenn der Channel schon bei der Erstellung des Uploaders vorhanden sein muss?
-            //für setter methode würde doch return wert fehlen oder?
+        createChannel(): void {
+
+            //ist das schon mehr oder weniger die set Methode?
 
             let channelName: string = prompt("Wie soll der Kanal heißen?: ");
             let channelPhoto: Photo;
@@ -104,24 +212,36 @@ namespace Aufgabe3 {
                 let photoWidth: number = parseInt(prompt("Wie breit ist das Bild?: "));
                 let photoHeight: number =  parseInt(prompt("Wie hoch ist das Bild?: "));
 
-                channelPhoto = new Photo(filesize, filename, photoWidth, photoHeight);
+                //Math.random für uuid?
+
+                channelPhoto = new Photo(filesize, filename, photoWidth, photoHeight, Math.random());
             }
             else {
 
                 if (answer != "2") {
-                    console.log("Diese Nummer kenne ich nicht. Es wird nun corläfig das Nutzerbild verwendet.");
+                    console.log("Unbekannte Nummer. Es wird nun vorläfig das Nutzerbild verwendet.");
                 }
 
                 channelPhoto = this.userPhoto;
             }
 
-            this.uploaderChannel =  new Channel(channelName, channelPhoto);
+            this.uploaderChannel =  new Channel(channelName, channelPhoto, []);
+
+            //Kanal braucht ein Video
+            this.uploadVideo();
+        }
+
+        addVideoToChannel(_video: Video, _channel: Channel): void { //warum die channelangabe? Man hat doch nur einen Kanal? Warum sollte man auf nen fremden Kanal zugreifen wollen?
+            
+            //Das gleiche wie uploadVideo nur mit fertigem Video?
+
+            //_channel.uploadedVideos.push(_video);
+            this.uploadedVideos.push(_video);
         }
 
         uploadPhotoToChannel(_channelPhoto: Photo): void {
 
             this.uploaderChannel.channelPhoto = _channelPhoto;
         }
-
     }
 }

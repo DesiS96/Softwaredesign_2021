@@ -10,22 +10,18 @@ var Aufgabe3;
     }
     Aufgabe3.User = User;
     class RegisteredUser extends User {
-        constructor(_username, _birthdate, _userPhoto, _userPlaylists, _userFavouriteVideos) {
+        constructor(_username, _birthdate, _userPhoto, _userFavouriteVideos) {
             super();
             this.username = _username;
             this.birthdate = _birthdate;
             this.userPhoto = _userPhoto;
-            this.userPlaylists = _userPlaylists;
             this.userFavouriteVideos = _userFavouriteVideos;
         }
-        playVideo() {
-            super.playVideo();
-        }
-        createPlaylists(_firstVideoForPlaylist) {
+        createPlaylist(_firstVideoForPlaylist) {
+            //eine PLaylist braucht mindestens ein Video, muss dann nicht demnach eigentlich ein Video mitgegeben werden?
             let playlistname = prompt("Wie soll die Playlist heißen?: ");
             let playlist = new Aufgabe3.Playlist([], this, playlistname);
             this.addVideoToPlaylist(_firstVideoForPlaylist, playlist);
-            return playlist;
         }
         addVideoToFavourites(_newFavouriteVideo) {
             this.userFavouriteVideos.push(_newFavouriteVideo);
@@ -40,9 +36,9 @@ var Aufgabe3;
     }
     Aufgabe3.RegisteredUser = RegisteredUser;
     class Uploader extends RegisteredUser {
-        constructor(_username, _birthdate, _userPhoto, _userPlaylists, _userFavouriteVideos, _uploaderChannel, _uploadedVideos) {
-            super(_username, _birthdate, _userPhoto, _userPlaylists, _userFavouriteVideos);
-            this.uploaderChannel = _uploaderChannel;
+        constructor(_username, _birthdate, _userPhoto, _userFavouriteVideos, /*_uploaderChannel: Channel,*/ _uploadedVideos) {
+            super(_username, _birthdate, _userPhoto, _userFavouriteVideos);
+            //this.uploaderChannel = _uploaderChannel;
             this.uploadedVideos = _uploadedVideos;
         }
         uploadVideo() {
@@ -54,6 +50,7 @@ var Aufgabe3;
             this.uploadedVideos.push(videoToUpload);
         }
         createChannel() {
+            //für setter methode würde doch return wert fehlen oder?
             let channelName = prompt("Wie soll der Kanal heißen?: ");
             let channelPhoto;
             console.log("Es muss noch ein Profilbild gewählt werden. Möchtest du ein neues hochladen oder einfach dein Nutzerbild benutzen?");
@@ -76,6 +73,7 @@ var Aufgabe3;
             this.uploaderChannel = new Aufgabe3.Channel(channelName, channelPhoto);
         }
         uploadPhotoToChannel(_channelPhoto) {
+            this.uploaderChannel.channelPhoto = _channelPhoto;
         }
     }
     Aufgabe3.Uploader = Uploader;
