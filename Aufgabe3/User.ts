@@ -26,9 +26,13 @@ namespace Aufgabe3 {
                 this.userPhoto = _userphoto;
                 this.userPlaylists = _userPlaylist;
                 this.userFavouriteVideos = _userFavouriteVideos;
-
         }*/
         //getters
+        get _username(): string {
+
+            return this.username;
+        }
+
         get _birthdate(): Date {
 
             return this.birthdate;
@@ -80,6 +84,18 @@ namespace Aufgabe3 {
                     }
                 }   
             }
+        }
+
+        set _username(_name: string) {
+
+            if (_name === "") {
+                console.log("Fehler! Name muss aus mindestens einem Buchstaben bestehen!");
+            }
+            else {
+
+                this.username = _name;
+            }
+
         }
         
         set _userPhoto(_photo: Photo) {
@@ -152,9 +168,8 @@ namespace Aufgabe3 {
         }*/
 
         //werden get und set methoden vererbt?
-
         //getter
-
+        
         get _uploaderChannel(): Channel {
 
             return this.uploaderChannel;
@@ -171,7 +186,6 @@ namespace Aufgabe3 {
 
             this.uploaderChannel = _channel;
         }*/
-
         set _uploadedVideos(_videos: Video[]) {
 
             this.uploadedVideos = _videos;
@@ -179,7 +193,6 @@ namespace Aufgabe3 {
         }
 
         uploadVideo(): void {
-
             //Video mehr oder weniger erstellen da kein Parameter?
 
             let videoTitle: string = prompt("Welcher Titel soll das Video haben?: ");
@@ -191,7 +204,6 @@ namespace Aufgabe3 {
 
             this.uploadedVideos.push(videoToUpload);
         }
-
         createChannel(): void {
 
             //ist das schon mehr oder weniger die set Methode?
@@ -230,12 +242,9 @@ namespace Aufgabe3 {
             //Kanal braucht ein Video
             this.uploadVideo();
         }
-
-        addVideoToChannel(_video: Video, _channel: Channel): void { //warum die channelangabe? Man hat doch nur einen Kanal? Warum sollte man auf nen fremden Kanal zugreifen wollen?
+        addVideoToChannel(_video: Video, _channel: Channel): void { //warum die Kanalangabe, man hat doch nur einen Kanal? Auf Fremden Kanal zugreifen?
             
             //Das gleiche wie uploadVideo nur mit fertigem Video?
-
-            //_channel.uploadedVideos.push(_video);
             this.uploadedVideos.push(_video);
         }
 
