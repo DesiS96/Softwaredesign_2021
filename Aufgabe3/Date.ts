@@ -15,6 +15,4 @@ namespace Aufgabe3 {
             this.uuid = _uuid;
         }
     }
-
-
 }
