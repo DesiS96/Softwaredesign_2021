@@ -17,6 +17,7 @@ namespace Aufgabe3 {
         protected userPlaylists: Playlist[];
         protected userFavouriteVideos: Video[];
         protected subscriptions: Subscription[];
+        protected uuid: number;
 
         /*constructor(_username: string, _birthdate: Date, _userphoto: Photo, _userPlaylist: Playlist[], _userFavouriteVideos: Video[]) {
 
@@ -51,6 +52,11 @@ namespace Aufgabe3 {
         get _userFavouriteVideos(): Video[] {
 
             return this.userFavouriteVideos;
+        }
+
+        get _uuid(): number {
+
+            return this.uuid;
         }
 
         //setters
@@ -113,6 +119,11 @@ namespace Aufgabe3 {
             this.userFavouriteVideos = _userFavouriteVideos;
         }
 
+        set _uuid(_number: number) {
+
+            this.uuid = _number;
+        }
+
         createPlaylist(_firstVideoForPlaylist: Video): void {
 
             //eine PLaylist braucht mindestens ein Video, muss dann nicht demnach eigentlich ein Video mitgegeben werden?
@@ -136,7 +147,7 @@ namespace Aufgabe3 {
 
         addVideoToPlaylist(_newPlaylistVideo: Video, _playlist: Playlist): void {
 
-            let playlistVideo: PlaylistVideo = new PlaylistVideo(_newPlaylistVideo, this);
+            let playlistVideo: PlaylistVideo = new PlaylistVideo(_newPlaylistVideo, this, Math.random());
 
             _playlist.playlistVideos.push(playlistVideo);
 
@@ -237,7 +248,7 @@ namespace Aufgabe3 {
                 channelPhoto = this.userPhoto;
             }
 
-            this.uploaderChannel =  new Channel(channelName, channelPhoto, []);
+            this.uploaderChannel =  new Channel(channelName, channelPhoto, [], Math.random());
 
             //Kanal braucht ein Video
             this.uploadVideo();

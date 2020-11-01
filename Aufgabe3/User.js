@@ -33,6 +33,9 @@ var Aufgabe3;
         get _userFavouriteVideos() {
             return this.userFavouriteVideos;
         }
+        get _uuid() {
+            return this.uuid;
+        }
         //setters
         set _birthdate(_date) {
             //Check if Date is Valid
@@ -75,6 +78,9 @@ var Aufgabe3;
         set _userFavouriteVideos(_userFavouriteVideos) {
             this.userFavouriteVideos = _userFavouriteVideos;
         }
+        set _uuid(_number) {
+            this.uuid = _number;
+        }
         createPlaylist(_firstVideoForPlaylist) {
             //eine PLaylist braucht mindestens ein Video, muss dann nicht demnach eigentlich ein Video mitgegeben werden?
             let playlistname = prompt("Wie soll die Playlist heißen?: ");
@@ -88,7 +94,7 @@ var Aufgabe3;
             this.userPhoto = _userPhoto;
         }
         addVideoToPlaylist(_newPlaylistVideo, _playlist) {
-            let playlistVideo = new Aufgabe3.PlaylistVideo(_newPlaylistVideo, this);
+            let playlistVideo = new Aufgabe3.PlaylistVideo(_newPlaylistVideo, this, Math.random());
             _playlist.playlistVideos.push(playlistVideo);
         }
         subscribteToChannel(_channel) {
@@ -154,7 +160,7 @@ var Aufgabe3;
                 }
                 channelPhoto = this.userPhoto;
             }
-            this.uploaderChannel = new Aufgabe3.Channel(channelName, channelPhoto, []);
+            this.uploaderChannel = new Aufgabe3.Channel(channelName, channelPhoto, [], Math.random());
             //Kanal braucht ein Video
             this.uploadVideo();
         }
