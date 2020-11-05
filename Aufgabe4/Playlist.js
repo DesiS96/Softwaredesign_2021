@@ -11,7 +11,7 @@ System.register(["guid-typescript"], function (exports_1, context_1) {
         execute: function () {
             Playlist = class Playlist {
                 constructor() {
-                    this.guid = guid_typescript_1.Guid.create();
+                    this.guid = guid_typescript_1.Guid.create().toString();
                 }
                 //setter
                 setPlaylistVideos(_videos) {

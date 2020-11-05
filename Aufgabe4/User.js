@@ -17,7 +17,7 @@ System.register(["guid-typescript"], function (exports_1, context_1) {
             exports_1("User", User);
             RegisteredUser = class RegisteredUser {
                 constructor() {
-                    this.guid = guid_typescript_1.Guid.create();
+                    this.guid = guid_typescript_1.Guid.create().toString();
                 }
                 //setter
                 setUsername(_name) {
@@ -81,7 +81,7 @@ System.register(["guid-typescript"], function (exports_1, context_1) {
             exports_1("RegisteredUser", RegisteredUser);
             Uploader = class Uploader {
                 constructor() {
-                    this.guid = guid_typescript_1.Guid.create();
+                    this.guid = guid_typescript_1.Guid.create().toString();
                 }
                 //setter
                 setUploaderChannel(_channel) {

@@ -26,7 +26,7 @@ export class RegisteredUser implements UserInterface {
     private userPhoto: Photo;
     private userPlaylist: Playlist[];
     private userFavouriteVideos: Video[];
-    private guid: Guid = Guid.create();
+    private guid: string = Guid.create().toString();
 
     //setter
 
@@ -63,7 +63,7 @@ export class RegisteredUser implements UserInterface {
     public getUserFavouriteVideos(): Video[] {
         return this.userFavouriteVideos;
     }
-    public getGuid(): Guid {
+    public getGuid(): string {
         return this.guid;
     }
 
@@ -111,7 +111,7 @@ export class Uploader implements UserInterface {
 
     private uploaderChannel: Channel;
     private uploadedVideos: Video[];
-    private guid: Guid = Guid.create();
+    private guid: string = Guid.create().toString();
 
     //setter
 
@@ -130,7 +130,7 @@ export class Uploader implements UserInterface {
     public getUploadedVideos(): Video[] {
         return this.uploadedVideos;
     }
-    public getGuid(): Guid {
+    public getGuid(): string {
         return this.guid;
     }
 

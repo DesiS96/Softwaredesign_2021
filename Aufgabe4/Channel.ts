@@ -5,7 +5,7 @@ export class Channel {
 
     private channelName: string;
     private channelPhoto: Photo;
-    private guid: Guid = Guid.create();
+    private guid: string = Guid.create().toString();
 
     //setter
     public setChannelName(_name: string): void {
@@ -22,7 +22,7 @@ export class Channel {
     public getChannelPhoto(): Photo {
         return this.channelPhoto;
     }
-    public getGuid(): Guid {
+    public getGuid(): string {
         return this.guid;
     }
 }

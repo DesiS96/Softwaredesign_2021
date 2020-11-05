@@ -19,7 +19,17 @@ System.register(["./User"], function (exports_1, context_1) {
                     }
                     else {
                         if (_userType == "RegisteredUser" || "REGISTEREDUSER" || "Registered User" || "registereduser" || "registered user") {
-                            return new User_1.RegisteredUser();
+                            let user;
+                            user.setUsername("default name");
+                            let defaultPhoto;
+                            user.setUserPhoto(defaultPhoto);
+                            let defaultDate;
+                            user.setBirthdate(defaultDate);
+                            let defaultFavouriteVideos;
+                            user.setUserFavouriteVideos(defaultFavouriteVideos);
+                            let defaultPlaylist;
+                            user.setUserplaylist(defaultPlaylist);
+                            return user;
                         }
                         else {
                             if (_userType == "Uploader" || "UPLOADER" || "uploader") {

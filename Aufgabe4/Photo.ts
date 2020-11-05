@@ -6,7 +6,7 @@ export class Photo {
     private filename: string;
     private photoWidth: number;
     private photoHeight: number;
-    private guid: Guid = Guid.create();
+    private guid: string = Guid.create().toString();
     
     //setter
 
@@ -44,7 +44,7 @@ export class Photo {
 
         return this.photoHeight;
     }
-    public getGUID(): Guid {
+    public getGUID(): string {
 
         return this.guid;
     }

@@ -6,7 +6,7 @@ export class Video {
     private videoLengthInSecs: number;
     private videoSize: number;
     private videoAspectRatio: string;
-    private guid: Guid = Guid.create();
+    private guid: string = Guid.create().toString();
 
     //setter
     public setVideoTitle(_title: string): void {
@@ -35,7 +35,7 @@ export class Video {
     public getAspectRatio(): string {
         return this.videoAspectRatio;
     }
-    public getGuid(): Guid {
+    public getGuid(): string {
         return this.guid;
     }
 

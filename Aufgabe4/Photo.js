@@ -11,7 +11,7 @@ System.register(["guid-typescript"], function (exports_1, context_1) {
         execute: function () {
             Photo = class Photo {
                 constructor() {
-                    this.guid = guid_typescript_1.Guid.create();
+                    this.guid = guid_typescript_1.Guid.create().toString();
                 }
                 //setter
                 setFilesize(_size) {

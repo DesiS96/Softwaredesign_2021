@@ -6,7 +6,7 @@ export class PlaylistVideo {
 
     private playlistVideo: Video;
     private registeredUser: RegisteredUser;
-    private guid: Guid = Guid.create();
+    private guid: string = Guid.create().toString();
 
     //setter
     public setPlaylistVideo(_video: Video): void {
@@ -23,7 +23,7 @@ export class PlaylistVideo {
     public getRegisteredUser(): RegisteredUser {
         return this.registeredUser;
     }
-    public getGUID(): Guid {
+    public getGUID(): string {
         return this.guid;
     }
 }
