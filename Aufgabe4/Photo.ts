@@ -1,51 +1,54 @@
-import { Guid } from "guid-typescript";
+//import { Guid } from "guid-typescript";
 
-export class Photo {
+namespace Aufgabe4 {
 
-    private filesize: number;
-    private filename: string;
-    private photoWidth: number;
-    private photoHeight: number;
-    private guid: string = Guid.create().toString();
-    
-    //setter
+    export class Photo {
 
-    public setFilesize(_size: number): void {
-        this.filesize = _size;
-    }
-    public setFilename(_name: string): void {
+        private _filesize: number;
+        private _filename: string;
+        private _photoWidth: number;
+        private _photoHeight: number;
+    // private guid: string = Guid.create().toString();
+        
+        //setter
 
-        this.filename = _name;
-    }
-    public setPhotoWidth(_photoWidth: number): void {
+        set filesize(_size: number) {
+            this._filesize = _size;
+        }
+        set filename(_name: string) {
 
-        this.photoWidth = _photoWidth;
-    }
-    public setPhotoHeight(_photoHeight: number): void {
+            this._filename = _name;
+        }
+        set photoWidth(_photoWidth: number) {
 
-        this.photoHeight = _photoHeight;
-    }
+            this._photoWidth = _photoWidth;
+        }
+        set photoHeight(_photoHeight: number) {
 
-    //getter
+            this._photoHeight = _photoHeight;
+        }
 
-    public getFilesize(): number {
+        //getter
 
-        return this.filesize;
-    }
-    public getFilename(): string {
+        get filesize(): number {
 
-        return this.filename;
-    }
-    public getPhotoWidth(): number {
+            return this._filesize;
+        }
+        get filename(): string {
 
-        return this.photoWidth;
-    }
-    public getPhotoHeight(): number {
+            return this._filename;
+        }
+        get photoWidth(): number {
 
-        return this.photoHeight;
-    }
-    public getGUID(): string {
+            return this._photoWidth;
+        }
+        get photoHeight(): number {
 
-        return this.guid;
+            return this._photoHeight;
+        }
+    /*    public getGUID(): string {
+
+            return this.guid;
+        }*/
     }
 }

@@ -1,50 +1,37 @@
-System.register(["guid-typescript"], function (exports_1, context_1) {
-    "use strict";
-    var guid_typescript_1, Photo;
-    var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [
-            function (guid_typescript_1_1) {
-                guid_typescript_1 = guid_typescript_1_1;
-            }
-        ],
-        execute: function () {
-            Photo = class Photo {
-                constructor() {
-                    this.guid = guid_typescript_1.Guid.create().toString();
-                }
-                //setter
-                setFilesize(_size) {
-                    this.filesize = _size;
-                }
-                setFilename(_name) {
-                    this.filename = _name;
-                }
-                setPhotoWidth(_photoWidth) {
-                    this.photoWidth = _photoWidth;
-                }
-                setPhotoHeight(_photoHeight) {
-                    this.photoHeight = _photoHeight;
-                }
-                //getter
-                getFilesize() {
-                    return this.filesize;
-                }
-                getFilename() {
-                    return this.filename;
-                }
-                getPhotoWidth() {
-                    return this.photoWidth;
-                }
-                getPhotoHeight() {
-                    return this.photoHeight;
-                }
-                getGUID() {
-                    return this.guid;
-                }
-            };
-            exports_1("Photo", Photo);
+"use strict";
+//import { Guid } from "guid-typescript";
+var Aufgabe4;
+//import { Guid } from "guid-typescript";
+(function (Aufgabe4) {
+    class Photo {
+        // private guid: string = Guid.create().toString();
+        //setter
+        set filesize(_size) {
+            this._filesize = _size;
         }
-    };
-});
+        set filename(_name) {
+            this._filename = _name;
+        }
+        set photoWidth(_photoWidth) {
+            this._photoWidth = _photoWidth;
+        }
+        set photoHeight(_photoHeight) {
+            this._photoHeight = _photoHeight;
+        }
+        //getter
+        get filesize() {
+            return this._filesize;
+        }
+        get filename() {
+            return this._filename;
+        }
+        get photoWidth() {
+            return this._photoWidth;
+        }
+        get photoHeight() {
+            return this._photoHeight;
+        }
+    }
+    Aufgabe4.Photo = Photo;
+})(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=Photo.js.map

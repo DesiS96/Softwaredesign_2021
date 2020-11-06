@@ -1,19 +1,18 @@
-import { Photo } from "./Photo";
-import { Playlist } from "./Playlist";
-import { Video } from "./Video";
-import { PlaylistVideo } from "./PlaylistVideo";
-import { Channel } from "./Channel";
-import { User, UserInterface, RegisteredUser, Uploader } from "./User";
-import { UserFactory } from "./UserFactory";
+//import { User, RegisteredUser} from "./User";
+//import { UserFactory } from "./UserFactory";
 
-let factory: UserFactory = new UserFactory();
+namespace Aufgabe4 {
 
-let martha: User = factory.getUser("User");
-martha.playVideo();
+    let factory: UserFactory = new UserFactory();
 
-//let leonard: RegisteredUser = factory.getUser("RegisteredUser"); Funktioniert mit Factory nicht da die für RegisteredUser nötigen werte mit dieser Methode nicht mitgeliefert werden
+    let martha: User = factory.getUser("User");
+    martha.playVideo();
 
-let ivan: RegisteredUser;
-ivan.setUsername("Ivan");
-console.log(ivan.getUsername);
+    let leonard: RegisteredUser = factory.getUser("RegisteredUser"); //Funktioniert mit Factory nicht da die für RegisteredUser nötigen werte mit dieser Methode nicht mitgeliefert werden
+    //Factory funktioniert auch dann nicht wenn ich mehrere Optionen für return-typen angebe, da die Klassen sich wohl von den Parametern zu sehr unterscheiden
 
+    let ivan: RegisteredUser = new RegisteredUser();
+    console.log(ivan.username);
+    ivan.username = "Ivan";
+    console.log(ivan.username);
+}

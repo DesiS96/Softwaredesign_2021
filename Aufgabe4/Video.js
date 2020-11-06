@@ -1,53 +1,43 @@
-System.register(["guid-typescript"], function (exports_1, context_1) {
-    "use strict";
-    var guid_typescript_1, Video;
-    var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [
-            function (guid_typescript_1_1) {
-                guid_typescript_1 = guid_typescript_1_1;
-            }
-        ],
-        execute: function () {
-            Video = class Video {
-                constructor() {
-                    this.guid = guid_typescript_1.Guid.create().toString();
-                }
-                //setter
-                setVideoTitle(_title) {
-                    this.videoTitle = _title;
-                }
-                setVideoLength(_videoLength) {
-                    this.videoLengthInSecs = _videoLength;
-                }
-                setVideoSize(_videoSize) {
-                    this.videoSize = _videoSize;
-                }
-                setAspectRatio(_aspectRatio) {
-                    this.videoAspectRatio = _aspectRatio;
-                }
-                //getter
-                getVideoTitle() {
-                    return this.videoTitle;
-                }
-                getVideoLength() {
-                    return this.videoLengthInSecs;
-                }
-                getVideoSize() {
-                    return this.videoSize;
-                }
-                getAspectRatio() {
-                    return this.videoAspectRatio;
-                }
-                getGuid() {
-                    return this.guid;
-                }
-                playVideo() {
-                    console.log("Video wird abgespielt.");
-                }
-            };
-            exports_1("Video", Video);
+"use strict";
+//import { Guid } from "guid-typescript";
+var Aufgabe4;
+//import { Guid } from "guid-typescript";
+(function (Aufgabe4) {
+    class Video {
+        //private guid: string = Guid.create().toString();
+        //setter
+        set videoTitle(_title) {
+            this._videoTitle = _title;
         }
-    };
-});
+        set videoLength(_videoLength) {
+            this._videoLengthInSecs = _videoLength;
+        }
+        set videoSize(_videoSize) {
+            this._videoSize = _videoSize;
+        }
+        set aspectRatio(_aspectRatio) {
+            this._videoAspectRatio = _aspectRatio;
+        }
+        //getter
+        get videoTitle() {
+            return this._videoTitle;
+        }
+        get videoLength() {
+            return this._videoLengthInSecs;
+        }
+        get videoSize() {
+            return this._videoSize;
+        }
+        get aspectRatio() {
+            return this._videoAspectRatio;
+        }
+        /*public getGuid(): string {
+            return this.guid;
+        }*/
+        playVideo() {
+            console.log("Video wird abgespielt.");
+        }
+    }
+    Aufgabe4.Video = Video;
+})(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=Video.js.map

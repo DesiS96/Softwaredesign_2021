@@ -1,44 +1,35 @@
-System.register(["guid-typescript"], function (exports_1, context_1) {
-    "use strict";
-    var guid_typescript_1, Playlist;
-    var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [
-            function (guid_typescript_1_1) {
-                guid_typescript_1 = guid_typescript_1_1;
-            }
-        ],
-        execute: function () {
-            Playlist = class Playlist {
-                constructor() {
-                    this.guid = guid_typescript_1.Guid.create().toString();
-                }
-                //setter
-                setPlaylistVideos(_videos) {
-                    this.playlistVideos = _videos;
-                }
-                setPlaylistUser(_user) {
-                    this.playlistUser = _user;
-                }
-                setPlaylistName(_name) {
-                    this.playlistName = _name;
-                }
-                //getter
-                getPlaylistVideos() {
-                    return this.playlistVideos;
-                }
-                getPlaylistUser() {
-                    return this.playlistUser;
-                }
-                getPlaylistName() {
-                    return this.playlistName;
-                }
-                getGuid() {
-                    return this.guid;
-                }
-            };
-            exports_1("Playlist", Playlist);
+"use strict";
+//import { Guid } from "guid-typescript";
+//import { PlaylistVideo } from "./PlaylistVideo";
+//import { RegisteredUser } from "./User";
+var Aufgabe4;
+//import { Guid } from "guid-typescript";
+//import { PlaylistVideo } from "./PlaylistVideo";
+//import { RegisteredUser } from "./User";
+(function (Aufgabe4) {
+    class Playlist {
+        //private guid: string = Guid.create().toString();
+        //setter
+        set playlistVideos(_videos) {
+            this._playlistVideos = _videos;
         }
-    };
-});
+        set playlistUser(_user) {
+            this._playlistUser = _user;
+        }
+        set playlistName(_name) {
+            this._playlistName = _name;
+        }
+        //getter
+        get playlistVideos() {
+            return this._playlistVideos;
+        }
+        get playlistUser() {
+            return this._playlistUser;
+        }
+        get playlistName() {
+            return this._playlistName;
+        }
+    }
+    Aufgabe4.Playlist = Playlist;
+})(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=Playlist.js.map

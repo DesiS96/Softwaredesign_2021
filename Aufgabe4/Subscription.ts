@@ -1,32 +1,35 @@
-import { Guid } from "guid-typescript";
-import { Channel } from "./Channel";
-import { RegisteredUser } from "./User";
+//import { Guid } from "guid-typescript";
+//import { Channel } from "./Channel";
+//import { RegisteredUser } from "./User";
 
-export class Subscription {
+namespace Aufgabe4 {
 
-    private subscriptionUser: RegisteredUser;
-    private subscriptionChannel: Channel;
-    private guid: string = Guid.create().toString();
+    export class Subscription {
+
+        private _subscriptionUser: RegisteredUser;
+        private _subscriptionChannel: Channel;
+        //private guid: string = Guid.create().toString();
 
 
-    //setter
-    public setSubscriptionUser(_user: RegisteredUser): void {
-        this.subscriptionUser = _user;
+        //setter
+        set subscriptionUser(_user: RegisteredUser) {
+            this._subscriptionUser = _user;
+        }
+        set subscriptionChannel(_channel: Channel) {
+            this._subscriptionChannel = _channel;
+        }
+
+        //getter
+
+        get subscriptionUser(): RegisteredUser {
+            return this._subscriptionUser;
+        }
+        get subscriptionChannel(): Channel {
+            return this._subscriptionChannel;
+        }
+        /*public getGuid(): string {
+            return this.guid;
+        }*/
+
     }
-    public setSubscriptionChannel(_channel: Channel): void {
-        this.subscriptionChannel = _channel;
-    }
-
-    //getter
-
-    public getSubscriptionUser(): RegisteredUser {
-        return this.subscriptionUser;
-    }
-    public getSubscriptionChannel(): Channel {
-        return this.subscriptionChannel;
-    }
-    public getGuid(): string {
-        return this.guid;
-    }
-
 }

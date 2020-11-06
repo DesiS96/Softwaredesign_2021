@@ -1,47 +1,50 @@
-import { Guid } from "guid-typescript";
+//import { Guid } from "guid-typescript";
 
-export class Video {
+namespace Aufgabe4 {
 
-    private videoTitle: string;
-    private videoLengthInSecs: number;
-    private videoSize: number;
-    private videoAspectRatio: string;
-    private guid: string = Guid.create().toString();
+    export class Video {
 
-    //setter
-    public setVideoTitle(_title: string): void {
-        this.videoTitle = _title;
-    }
-    public setVideoLength(_videoLength: number): void {
-        this.videoLengthInSecs = _videoLength;
-    }
-    public setVideoSize(_videoSize: number): void {
-        this.videoSize = _videoSize;
-    }
-    public setAspectRatio(_aspectRatio: string): void {
-        this.videoAspectRatio = _aspectRatio;
-    }
+        private _videoTitle: string;
+        private _videoLengthInSecs: number;
+        private _videoSize: number;
+        private _videoAspectRatio: string;
+        //private guid: string = Guid.create().toString();
 
-    //getter
-    public getVideoTitle(): string {
-        return this.videoTitle;
-    }
-    public getVideoLength(): number {
-        return this.videoLengthInSecs;
-    }
-    public getVideoSize(): number {
-        return this.videoSize;
-    }
-    public getAspectRatio(): string {
-        return this.videoAspectRatio;
-    }
-    public getGuid(): string {
-        return this.guid;
-    }
+        //setter
+        set videoTitle(_title: string) {
+            this._videoTitle = _title;
+        }
+        set videoLength(_videoLength: number) {
+            this._videoLengthInSecs = _videoLength;
+        }
+        set videoSize(_videoSize: number) {
+            this._videoSize = _videoSize;
+        }
+        set aspectRatio(_aspectRatio: string) {
+            this._videoAspectRatio = _aspectRatio;
+        }
 
-    playVideo(): void {
+        //getter
+        get videoTitle(): string {
+            return this._videoTitle;
+        }
+        get videoLength(): number {
+            return this._videoLengthInSecs;
+        }
+        get videoSize(): number {
+            return this._videoSize;
+        }
+        get aspectRatio(): string {
+            return this._videoAspectRatio;
+        }
+        /*public getGuid(): string {
+            return this.guid;
+        }*/
 
-        console.log("Video wird abgespielt.");
+        playVideo(): void {
 
+            console.log("Video wird abgespielt.");
+
+        }
     }
 }

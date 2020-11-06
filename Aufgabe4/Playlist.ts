@@ -1,38 +1,41 @@
-import { Guid } from "guid-typescript";
-import { PlaylistVideo } from "./PlaylistVideo";
-import { RegisteredUser } from "./User";
+//import { Guid } from "guid-typescript";
+//import { PlaylistVideo } from "./PlaylistVideo";
+//import { RegisteredUser } from "./User";
 
-export class Playlist {
+namespace Aufgabe4 {
 
-    private playlistVideos: PlaylistVideo[];
-    private playlistUser: RegisteredUser;
-    private playlistName: string;
-    private guid: string = Guid.create().toString();
+    export class Playlist {
 
-    //setter
+        private _playlistVideos: PlaylistVideo[];
+        private _playlistUser: RegisteredUser;
+        private _playlistName: string;
+        //private guid: string = Guid.create().toString();
 
-    public setPlaylistVideos(_videos: PlaylistVideo[]): void {
-        this.playlistVideos = _videos;
-    }
-    public setPlaylistUser(_user: RegisteredUser): void {
-        this.playlistUser = _user;
-    }
-    public setPlaylistName(_name: string): void {
-        this.playlistName = _name;
-    }
+        //setter
 
-    //getter
+        set playlistVideos(_videos: PlaylistVideo[]) {
+            this._playlistVideos = _videos;
+        }
+        set playlistUser(_user: RegisteredUser) {
+            this._playlistUser = _user;
+        }
+        set playlistName(_name: string) {
+            this._playlistName = _name;
+        }
 
-    public getPlaylistVideos(): PlaylistVideo[] {
-        return this.playlistVideos;
+        //getter
+
+        get playlistVideos(): PlaylistVideo[] {
+            return this._playlistVideos;
+        }
+        get playlistUser(): RegisteredUser {
+            return this._playlistUser;
+        }
+        get playlistName(): string {
+            return this._playlistName;
+        }
+    /*    public getGuid(): string {
+            return this.guid;
+        }   */
     }
-    public getPlaylistUser(): RegisteredUser {
-        return this.playlistUser;
-    }
-    public getPlaylistName(): string {
-        return this.playlistName;
-    }
-    public getGuid(): string {
-        return this.guid;
-    }   
 }

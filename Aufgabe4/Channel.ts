@@ -1,28 +1,31 @@
-import { Guid } from "guid-typescript";
-import { Photo } from "./Photo";
+//import { Guid } from "guid-typescript";
+//import { Photo } from "./Photo";
 
-export class Channel {
+namespace Aufgabe4 {
 
-    private channelName: string;
-    private channelPhoto: Photo;
-    private guid: string = Guid.create().toString();
+    export class Channel {
 
-    //setter
-    public setChannelName(_name: string): void {
-        this.channelName = _name;
-    }
-    public setChannelPhoto(_photo: Photo): void {
-        this.channelPhoto = _photo;
-    }
+        private _channelName: string;
+        private _channelPhoto: Photo;
+        //private guid: string = Guid.create().toString();
 
-    //getter
-    public getChannelName(): string {
-        return this.channelName;
-    }
-    public getChannelPhoto(): Photo {
-        return this.channelPhoto;
-    }
-    public getGuid(): string {
-        return this.guid;
+        //setter
+        set channelName(_name: string) {
+            this._channelName = _name;
+        }
+        set channelPhoto(_photo: Photo) {
+            this._channelPhoto = _photo;
+        }
+
+        //getter
+        get channelName(): string {
+            return this._channelName;
+        }
+        get channelPhoto(): Photo {
+            return this._channelPhoto;
+        }
+    /*    public getGuid(): string {
+            return this.guid;
+        }*/
     }
 }

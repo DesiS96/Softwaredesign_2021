@@ -1,38 +1,29 @@
-System.register(["guid-typescript"], function (exports_1, context_1) {
-    "use strict";
-    var guid_typescript_1, Subscription;
-    var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [
-            function (guid_typescript_1_1) {
-                guid_typescript_1 = guid_typescript_1_1;
-            }
-        ],
-        execute: function () {
-            Subscription = class Subscription {
-                constructor() {
-                    this.guid = guid_typescript_1.Guid.create().toString();
-                }
-                //setter
-                setSubscriptionUser(_user) {
-                    this.subscriptionUser = _user;
-                }
-                setSubscriptionChannel(_channel) {
-                    this.subscriptionChannel = _channel;
-                }
-                //getter
-                getSubscriptionUser() {
-                    return this.subscriptionUser;
-                }
-                getSubscriptionChannel() {
-                    return this.subscriptionChannel;
-                }
-                getGuid() {
-                    return this.guid;
-                }
-            };
-            exports_1("Subscription", Subscription);
+"use strict";
+//import { Guid } from "guid-typescript";
+//import { Channel } from "./Channel";
+//import { RegisteredUser } from "./User";
+var Aufgabe4;
+//import { Guid } from "guid-typescript";
+//import { Channel } from "./Channel";
+//import { RegisteredUser } from "./User";
+(function (Aufgabe4) {
+    class Subscription {
+        //private guid: string = Guid.create().toString();
+        //setter
+        set subscriptionUser(_user) {
+            this._subscriptionUser = _user;
         }
-    };
-});
+        set subscriptionChannel(_channel) {
+            this._subscriptionChannel = _channel;
+        }
+        //getter
+        get subscriptionUser() {
+            return this._subscriptionUser;
+        }
+        get subscriptionChannel() {
+            return this._subscriptionChannel;
+        }
+    }
+    Aufgabe4.Subscription = Subscription;
+})(Aufgabe4 || (Aufgabe4 = {}));
 //# sourceMappingURL=Subscription.js.map

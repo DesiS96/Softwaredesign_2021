@@ -1,44 +1,45 @@
-import { RegisteredUser, Uploader, User, UserInterface } from "./User";
+/*import { RegisteredUser, Uploader, User, UserInterface } from "./User";
 import { Photo } from "./Photo";
 import { Playlist } from "./Playlist";
-import { Video } from "./Video";
-import { PlaylistVideo } from "./PlaylistVideo";
-import { Channel } from "./Channel";
+import { Video } from "./Video";*/
 
-export class UserFactory {
+namespace Aufgabe4 {
 
-    public getUser(_userType: string): UserInterface {
-        if (_userType == null) {
-            return null;
-        }
-        if (_userType == "User" || "USER" || "user") {
-                return new User();
-        }
-        else {
-            if (_userType == "RegisteredUser" || "REGISTEREDUSER" || "Registered User" || "registereduser" || "registered user") {
-                let user: RegisteredUser;
-                user.setUsername("default name");
-                let defaultPhoto: Photo;
-                user.setUserPhoto(defaultPhoto);
-                let defaultDate: Date;
-                user.setBirthdate(defaultDate);
-                let defaultFavouriteVideos: Video[];
-                user.setUserFavouriteVideos(defaultFavouriteVideos);
-                let defaultPlaylist: Playlist[];
-                user.setUserplaylist(defaultPlaylist);
-                return user;
+    export class UserFactory {
+
+        public getUser(_userType: string): UserInterface {
+            if (_userType == null) {
+                return null;
+            }
+            if (_userType == "User" || "USER" || "user") {
+                    return new User();
             }
             else {
-                if (_userType == "Uploader" || "UPLOADER" || "uploader") {
-                    return new Uploader();
+                if (_userType == "RegisteredUser" || "REGISTEREDUSER" || "Registered User" || "registereduser" || "registered user") {
+
+                   /* let user: RegisteredUser = new RegisteredUser();
+                    let photo: Photo = new Photo();
+                    let birthdate: Date = new Date();
+                    user.username = "";
+                    user.userPhoto = photo;
+                    user.birthdate = birthdate;
+                    user.userplaylist = [];
+                    user.userFavouriteVideos = [];*/
+                    //return user;
+                    return new RegisteredUser;
                 }
+                else {
+                    if (_userType == "Uploader" || "UPLOADER" || "uploader") {
+                        return new Uploader();
+                    }
+                }
+                return null;
             }
-            return null;
+
+            
+            
         }
 
-        
-        
+
     }
-
-
 }
